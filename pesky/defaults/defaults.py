@@ -10,7 +10,7 @@ from pesky.defaults.errors import UndefinedDefault, DefaultsError
 class Defaults(object):
     """
     """
-    def __init__(self, project):
+    def __init__(self, project=None):
         self._project = project
         self._defaults = self._load()
 
@@ -32,9 +32,10 @@ class Defaults(object):
         except ImportError, e:
             pass
         # load package overrides
-        from mandelbrot.defaults.package import package_defaults
-        for name,value in package_defaults(self._project).items():
-            defaults[name] = value
+        if self._project is not None:
+            from mandelbrot.defaults.package import package_defaults
+            for name,value in package_defaults(self._project).items():
+                defaults[name] = value
         return defaults
 
     def get(self, name):

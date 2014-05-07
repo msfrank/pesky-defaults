@@ -25,6 +25,8 @@ class set_default(Command):
         self.egg_name = None
         self.egg_base = None
         self.defaults_path = None
+        self.key = None
+        self.value = None
 
     def finalize_options(self):
         self.egg_name = safe_name(self.distribution.get_name())
@@ -42,8 +44,11 @@ class set_default(Command):
         log.info("egg_info = " + self.egg_info)
 
         self.defaults_path = os.path.join(self.egg_info, "pesky_defaults.json")
+        
 
     def read_defaults(self):
+        if not os.access(self.defaults_path, os.F_OK):
+            return dict()
         with open(self.defaults_path, 'r') as f:
             return json.loads(f.read())
 
@@ -54,4 +59,7 @@ class set_default(Command):
                 f.write(json.dumps(defaults))
 
     def run(self):
-        pass
+        defaults = self.read_defaults()
+        log.info("setting %s = '%s'" % (self.key, self.value))
+        defaults[self.key] = self.value
+        self.write_defaults(defaults)
