@@ -8,6 +8,6 @@ import pkg_resources, json
 def package_defaults(project):
     req = pkg_resources.Requirement.parse(project)
     provider = pkg_resources.get_provider(req)
-    if provider.has_metadata('pesky_defaults.txt'):
-        return json.loads(provider.get_metadata('pesky_defaults.txt'))
+    if provider.has_metadata('pesky_defaults.json'):
+        return json.loads(provider.get_metadata('pesky_defaults.json'))
     return dict()
