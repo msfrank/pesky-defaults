@@ -27,15 +27,14 @@ class Defaults(collections.Mapping):
             try:
                 from pesky.defaults.site import site_defaults
                 for name,value in site_defaults().items():
-                    defaults[name] = value
+                    self._defaults[name] = value
             except ImportError, e:
                 pass
         # load package overrides
         if project is not None:
             from pesky.defaults.package import package_defaults
             for name,value in package_defaults(project).items():
-                defaults[name] = value
-        return defaults
+                self._defaults[name] = value
 
     def get(self, name):
         """
