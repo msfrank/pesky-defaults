@@ -36,7 +36,7 @@ setup(
     # distuils commands
     entry_points = {
         "distutils.commands": [
-            "set_default = pesky.defaults.distcmd:set_default",
+            "pesky_default = pesky.defaults.distcmd:pesky_default",
             ],
         },
     # test configuration
