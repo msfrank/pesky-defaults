@@ -17,7 +17,7 @@ class pesky_default(Command):
     # List of option tuples: long name, short name (None if no short
     # name), and help string.
     user_options = [
-        ('command=', None, "perform the specified COMMAND"),
+        ('command=', None, "perform the specified COMMAND (get, set, clear, flush, list)"),
         ('key=', None, "manipulate default named KEY"),
         ('value=', None, "set default to the specified VALUE"),
         ]

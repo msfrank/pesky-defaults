@@ -8,11 +8,15 @@ from os.path import abspath, dirname
 path.insert(0, abspath(dirname(__file__)))
 from pesky.defaults import versionstring
 
+with open("README", "r") as f:
+    readme = f.read()
+    
 setup(
     # package description
     name = "pesky-defaults",
     version = versionstring(),
     description="Pesky configuration defaults interface",
+    long_description=readme,
     author="Michael Frank",
     author_email="syntaxockey@gmail.com",
     # installation dependencies
