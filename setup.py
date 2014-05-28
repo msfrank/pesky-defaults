@@ -14,7 +14,7 @@ setup(
     version = versionstring(),
     description="Pesky configuration defaults interface",
     author="Michael Frank",
-    author_email="msfrank@syntaxockey.com",
+    author_email="syntaxockey@gmail.com",
     # installation dependencies
     install_requires=[
         ],
