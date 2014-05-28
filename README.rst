@@ -1,5 +1,5 @@
-pesky-defaults - configuration defaults interface
-=================================================
+pesky-defaults
+==============
 
 pesky-defaults is a small library for querying platform, distribution,
 and package defaults using a uniform interface.  
