@@ -8,7 +8,7 @@ from os.path import abspath, dirname
 path.insert(0, abspath(dirname(__file__)))
 from pesky.defaults import versionstring
 
-with open("README", "r") as f:
+with open("README.rst", "r") as f:
     readme = f.read()
     
 setup(
